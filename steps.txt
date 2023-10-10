@@ -1,0 +1,76 @@
+#Setting Up the C++ and wxWidget environment
+
+This process is very important because without it c++ programs can't be written and the wxWidget Library can't be used. 
+
+These are the steps I took in setting it Up
+
+1. I downloaded the visual studio code software from their official website https://code.visualstudio.com/ and then installled it
+
+2.  After the installation, I navigated to the extension menu within the software and downloaded the C/C++ extension and also CMake tools (The CMake tool will enable you access the wxWidget)
+
+3.  I installed MinGW from the official site https://www.msys2.org/
+
+3i. I Ran the installer and followed the steps of the installation wizard. Note that MSYS2 requires 64 bit Windows 8.1 or newer
+
+3ii.    In the wizard, I chose my desired Installation Folder. I Recorded the directory for later, but In most cases, the recommended directory is acceptable. The same applies when you get to setting the start menu shortcuts step. When completed, I checked the Run MSYS2 now box and selected Finish. This opened a MSYS2 terminal window for me.
+
+3iv.    In this terminal, I install the MinGW-w64 toolchain by running the following command:
+
+pacman -S --needed base-devel mingw-w64-ucrt-x86_64-toolchain
+
+3v.     Accept the default number of packages in the toolchain group by pressing Enter.
+
+
+
+3vi.    Enter Y when prompted whether to proceed with the installation.
+
+4.      Add the path to your MinGW-w64 bin folder to the Windows PATH environment variable by using the following steps:
+
+4i.     In the Windows search bar, type Settings to open your Windows Settings.
+ 
+4ii.    Search for Edit environment variables for your account.
+
+4iii.   In my User variables, I selected the Path variable and then selected Edit.
+  
+4iv.    I Selected New and added the MinGW-w64 destination folder to my record during the installation process to the list. The default path: C:\msys64\ucrt64\bin.
+
+4v.    I Selected OK to save the updated PATH. I reopened the console windows for the new PATH location to be available
+
+4vi. To check that the MinGW-w64 tools were correctly installed and available, I opened a new Command Prompt and typed:
+
+gcc --version
+g++ --version
+gdb --version
+
+
+
+5.  I installed the wxWidget source code from the official website https://www.wxwidgets.org/downloads/
+
+5i. Repeat the Steps in Step 4 but now the path you would use will be the wxWidget source code location
+ 
+
+6. Now to install the libries of the wxwidget, open the command prompt by searching in the start menu and then input CD the directory of the wxwidget source code earlier installed\\build\\msw and then run it by clicking enter
+
+7.I Cleaned up the source by inputing this line of code 
+
+mingw32-make -f makefile.gcc SHARED=1 UNICODE=1 BUILD=release clean
+
+8. After the clean up, I compiled the library buy using this line of code
+
+mingw32-make -f makefile.gcc SHARED=1 UNICODE=1 BUILD=release
+
+note: this will take a while
+
+9. When the compilation was done the next code was
+
+mingw32-make -f makefile.gcc SHARED=1 UNICODE=1 BUILD=release setup_h
+
+10. Now when this was done I built the static Library on windows using these line of codes
+
+mingw32-make SHELL=CMD.exe -j4 -f makefile.gcc BUILD=release UNICODE=1 SHARED=0
+
+when this was done,
+
+mingw32-make SHELL=CMD.exe -j4 -f makefile.gcc BUILD=release UNICODE=1 SHARED=0 MONOLITHIC=1.
+
+THIS IS IT FOR HOW I SET UP THE WXWIDGET
