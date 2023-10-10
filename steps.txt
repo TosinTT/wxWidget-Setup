@@ -8,69 +8,130 @@ These are the steps I took in setting it Up
 
 2.  After the installation, I navigated to the extension menu within the software and downloaded the C/C++ extension and also CMake tools (The CMake tool will enable you access the wxWidget)
 
-3.  I installed MinGW from the official site https://www.msys2.org/
+3. Then I Downloaded and Installed the Visual Studio Installer:
 
-3i. I Ran the installer and followed the steps of the installation wizard. Note that MSYS2 requires 64 bit Windows 8.1 or newer
+3i. I went to the official Visual Studio website: https://visualstudio.microsoft.com/downloads/.
+Clicked on the "Download Visual Studio" button. This downloaded the Visual Studio Installer, which is a small executable used to install and manage Visual Studio.
+Run the Visual Studio Installer:
 
-3ii.    In the wizard, I chose my desired Installation Folder. I Recorded the directory for later, but In most cases, the recommended directory is acceptable. The same applies when you get to setting the start menu shortcuts step. When completed, I checked the Run MSYS2 now box and selected Finish. This opened a MSYS2 terminal window for me.
+I Located the downloaded Visual Studio Installer executable (usually named vs_installer.exe or something similar) and launched it
 
-3iv.    In this terminal, I install the MinGW-w64 toolchain by running the following command:
+3ii. I selected the "Desktop development with C++" workload.
+
+4.    After I installed Visual Studio, I installed the CMake separately. I Downloaded the CMake installer from the CMake download page and followed the installation instructions https://cmake.org/download/.
+
+note: the wxwidget wouldn't run without CMake
+
+4i.    I Created a CMake-Based Project
+
+I Created a new folder for my C++ project, Inside my project folder, I created a CMakeLists.txt file that describes my project's build configuration. This file was essential.
+
+4ii. Then I inputed this line of code into the txt file
+
+##cmake_minimum_required(VERSION 3.27.7)
+project(name of project folder)
+# Set the path to your wxWidgets installation
+set(wxWidgets_ROOT_DIR "<this will contain the path to wxWidget>")
+
+# Find and configure wxWidgets
+find_package(wxWidgets REQUIRED COMPONENTS core base)
+include(${wxWidgets_USE_FILE})
+
+# Define your project and source files
+set(SOURCES
+   < this will contain the name of the cpp file>
+)
+
+# Add your executable target
+add_executable(<this will contain the project folder name> ${SOURCES})
+
+# Link your project with wxWidgets libraries
+target_link_libraries(<this will also conatin the project folder name> ${wxWidgets_LIBRARIES})   
+
+4iii.   I Opened the Command Palette (Ctrl+Shift+P) and ran "CMake: Select a Kit". The automatically scanned for kits on your computer and create a list of compilers found on your system.
+
+4iv. I Selected the compiler I want to use. It was something like "CMake GCC"
+
+4v. Then In the visual studio code terminal I ran the following code to compile and build.
+
+"cmake .."
+"cmake --build"
+
+4vi.    The kit I selected previously is shown in the Status bar. At the bottom of the visual studio software
+
+4vii.   I selected a variant, by opening the Command Palette (Ctrl+Shift+P) and ran the 'CMake: Select Variant' command.
+
+5. I Selected Debug variant to include debug information with my build.
+
+5i. I opened the Command Palette (Ctrl+Shift+P) and ran the "CMake: Configure" command to configure my project. This generateed build files in the project's build folder using the kit and variant I selected.
+
+
+6.  I installed MinGW from the official site https://www.msys2.org/
+
+6i. I Ran the installer and followed the steps of the installation wizard. Note that MSYS2 requires 64 bit Windows 8.1 or newer
+
+6ii.    In the wizard, I chose my desired Installation Folder. I Recorded the directory for later, but In most cases, the recommended directory is acceptable. The same applies when you get to setting the start menu shortcuts step. When completed, I checked the Run MSYS2 now box and selected Finish. This opened a MSYS2 terminal window for me.
+
+6iii.    In this terminal, I installed the MinGW-w64 toolchain by running the following command:
 
 pacman -S --needed base-devel mingw-w64-ucrt-x86_64-toolchain
 
-3v.     Accept the default number of packages in the toolchain group by pressing Enter.
+6iv.     I Accepted the default number of packages in the toolchain group by pressing Enter.
 
 
 
-3vi.    Enter Y when prompted whether to proceed with the installation.
+6v.    I Entered Y when prompted whether to proceed with the installation.
 
-4.      Add the path to your MinGW-w64 bin folder to the Windows PATH environment variable by using the following steps:
+7.      I Added the path to your MinGW-w64 bin folder to the Windows PATH environment variable by using the following steps:
 
-4i.     In the Windows search bar, type Settings to open your Windows Settings.
+7i.     In the Windows search bar, type Settings to open your Windows Settings.
  
-4ii.    Search for Edit environment variables for your account.
+7ii.    Search for Edit environment variables for your account.
 
-4iii.   In my User variables, I selected the Path variable and then selected Edit.
+7iii.   In my User variables, I selected the Path variable and then selected Edit.
   
-4iv.    I Selected New and added the MinGW-w64 destination folder to my record during the installation process to the list. The default path: C:\msys64\ucrt64\bin.
+7iv.    I Selected New and added the MinGW-w64 destination folder to my record during the installation process to the list. The default path: C:\msys64\ucrt64\bin.
 
-4v.    I Selected OK to save the updated PATH. I reopened the console windows for the new PATH location to be available
+7v.    I Selected OK to save the updated PATH. I reopened the console windows for the new PATH location to be available
 
-4vi. To check that the MinGW-w64 tools were correctly installed and available, I opened a new Command Prompt and typed:
+7vi. To check that the MinGW-w64 tools were correctly installed and available, I opened a new Command Prompt and typed:
 
 gcc --version
 g++ --version
 gdb --version
 
+THIS WAS ALL FOR THE C++ ENVIRONMENT
 
+8.  I installed the wxWidget source code from the official website https://www.wxwidgets.org/downloads/
 
-5.  I installed the wxWidget source code from the official website https://www.wxwidgets.org/downloads/
-
-5i. Repeat the Steps in Step 4 but now the path you would use will be the wxWidget source code location
+8i. I Repeated the Steps in Step 7 but now the path you would use will be the wxWidget source code location
  
 
-6. Now to install the libries of the wxwidget, open the command prompt by searching in the start menu and then input CD the directory of the wxwidget source code earlier installed\\build\\msw and then run it by clicking enter
+8. Now to install the libries of the wxwidget, open the command prompt by searching in the start menu and then input CD the directory of the wxwidget source code earlier installed\\build\\msw and then run it by clicking enter
 
-7.I Cleaned up the source by inputing this line of code 
+9.I Cleaned up the source by inputing this line of code 
 
 mingw32-make -f makefile.gcc SHARED=1 UNICODE=1 BUILD=release clean
 
-8. After the clean up, I compiled the library buy using this line of code
+10. After the clean up, I compiled the library buy using this line of code
 
 mingw32-make -f makefile.gcc SHARED=1 UNICODE=1 BUILD=release
 
 note: this will take a while
 
-9. When the compilation was done the next code was
+11. When the compilation was done the next code was
 
 mingw32-make -f makefile.gcc SHARED=1 UNICODE=1 BUILD=release setup_h
 
-10. Now when this was done I built the static Library on windows using these line of codes
+12. Now when this was done I built the static Library on windows using these line of codes
 
 mingw32-make SHELL=CMD.exe -j4 -f makefile.gcc BUILD=release UNICODE=1 SHARED=0
 
 when this was done,
 
 mingw32-make SHELL=CMD.exe -j4 -f makefile.gcc BUILD=release UNICODE=1 SHARED=0 MONOLITHIC=1.
+
+13. Then I went back to the folder I created and ran the nmake code in the terminal to fully set up the environment.
+
 
 THIS IS IT FOR HOW I SET UP THE WXWIDGET
