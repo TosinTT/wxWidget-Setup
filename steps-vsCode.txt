@@ -105,9 +105,21 @@ THIS WAS ALL FOR THE C++ ENVIRONMENT
 8.  I installed the wxWidget source code from the official website https://www.wxwidgets.org/downloads/
 
 8i. I Repeated the Steps in Step 7 but now the path you would use will be the wxWidget source code location
+  
+8ii.I Added the path to your wxWidget folder to the Windows PATH environment variable by using the following steps:
+
+8iii.     In the Windows search bar, type Settings to open your Windows Settings.
+ 
+8iv.    Search for Edit environment variables for your account.
+
+8v.   In my User variables, I selected the Path variable and then selected Edit.
+  
+8vi.    I Selected New on the system variable and set the name to WXWIN and added the  destination folder path. The default path: C:\libra\wxWidgets-3.2.2.1(this is the path I set when I downloaded it,).
+
+8vi.    I Selected OK to save the updated PATH. I reopened the console windows for the new PATH location to be available
  
 
-8. Now to install the libries of the wxwidget, open the command prompt by searching in the start menu and then input CD the directory of the wxwidget source code earlier installed\\build\\msw and then run it by clicking enter
+8vii. Now to install the libries of the wxwidget, open the command prompt by searching in the start menu and then input CD the directory of the wxwidget source code earlier installed\\build\\msw and then run it by clicking enter
 
 9.I Cleaned up the source by inputing this line of code 
 

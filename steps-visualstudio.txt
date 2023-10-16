@@ -1,0 +1,34 @@
+#steps to set-up wxWidget
+
+1. I downloaded the visual studio installer from the official visual studio site https://visualstudio.microsoft.com/
+
+2. After the download, I launced the installer and then choose the visual studio professional 2022, and then chose the workloads "desktop development with c++" and ".NET desktop development"
+
+3. When this was done,  I installed the wxWidget source code from the official website https://www.wxwidgets.org/downloads/
+
+
+4.I Added the path to your wxWidget folder to the Windows PATH environment variable by using the following steps:
+
+4ii.     In the Windows search bar, type Settings to open your Windows Settings.
+ 
+4iii.    Search for Edit environment variables for your account.
+
+4iv.   In my User variables, I selected the Path variable and then selected Edit.
+  
+4v.    I Selected New on the system variable and set the name to WXWIN and added the  destination folder path. The default path: C:\libra\wxWidgets-3.2.2.1(this is the path I set when I downloaded it,) and then saved it.
+
+5. When this was done, I opened my visual studio, and created a new project, which it tells you to when you open it.
+
+6. Then on the right hand side it shows the project, and then I right clicked on the main project name and selected properties.
+
+7.A box pops up and then at the top of the box I set the platform to "all platform" and then the configuration to "all configuration"
+
+8. In the menu, I opened the c/c++ menu and then navigated to General and then edited the Additional include directory so that it can locate the wxWidget
+
+9. Then I inputed the follow path $(WXWIN)\include and $(WXWIN)\include\msvc
+
+10. After this, I navigated to the linker menu, and then to the System part of the linker. In the System, I changed the subsystem to windows subsystem
+
+11. Then I navigated to the General part of the Linker and then Edited the "Additional Library Directories", then I changed the platform to win32 and then inputed the following path "$(WXWIN)\lib\vc_lib" then applied it 
+ 
+12. Then I changed the platform again to x64 and then eddited the "Additional Library Directories" to $(WXWIN)\lib\vc_x64_lib
