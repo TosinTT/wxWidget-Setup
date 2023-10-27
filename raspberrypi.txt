@@ -1,3 +1,9 @@
-
-
-I made the research and I have gotten the basic understanding on how to use the raspberry pi, and also found out c/c++ is more efficient, it is faster with interfacing with hardware, it has more control over hardware and it is supported natively on raspberry pi, it consumes less storage just as you told me, so I have been learning how to connect the c file with the raspberry pi and was able to create a code to blink the lead of a raspberry pi which I couldn't really test but I was able to generate the file that will be sent to the raspberry pi and make it work, and I used c because I found out that before I can interface C++ with the raspberry pi I would need a Linux environment, and then I used the raspberry pi emulator, because it runs on Linux , and I was successfully able to use c++ with the raspberry pi. It took a lot of time getting resources for c/c++ but I was finally able to find some and and it has been going great.
+I made the research and I have gotten the basic understanding on how to use the raspberry pi, and also 
+found out c/c++ is more efficient, it is faster with interfacing with hardware, it has more control over 
+hardware and it is supported natively on raspberry pi, it consumes less storage just as you told me, so I 
+have been learning how to connect the c file with the raspberry pi and was able to create a code to blink 
+the lead of a raspberry pi which I couldn't really test but I was able to generate the file that will be 
+sent to the raspberry pi and make it work, and I used c because I found out that before I can interface C
+++ with the raspberry pi I would need a Linux environment, and then I used the raspberry pi emulator, 
+because it runs on Linux , and I was successfully able to use c++ with the raspberry pi. It took a lot of 
+time getting resources for c/c++ but I was finally able to find some and and it has been going great.
