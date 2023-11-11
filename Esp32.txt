@@ -1,0 +1,41 @@
+Adafruit 1.44" Color TFT LCD Display with MicroSD Card breakout [ADA2088]- this is one display for the esp32 and it is colored
+
+Walfront 1.3 Inch 128X64 IIC I2C SPI Serial OLED Display Module White Text Color for MP3 Function Cellphone Smart Health Device- this i
+
+Waveshare 1.3inch OLED Display Module for Raspberry Pi Pico, 64×128 Pixels, 4-Wire SPI and I2C Interface Embedded SH1107 Driver with Two User Buttons for Easy Interacting
+
+Hosyond 5 Pcs 1.3 Inch IIC I2C OLED Display Module 128x64 Pixel SH1106 Screen Module Compatible with Arduino/Raspberry Pi (White)
+
+Waveshare 1.3inch OLED Display Module for Raspberry Pi Pico, 64×128 Pixels, 4-Wire SPI and I2C Interface Embedded SH1107 Driver with Two User Buttons for Easy Interacting
+
+
+//How to interface LVGL with ESP32:
+1. Firstly I downloaded the Adruino IDE from the official Adruino website adruino.cc
+
+2.I Opened the Arduino IDE, then I went to "File" -> "Preferences."
+In the "Additional Boards Manager URLs" field, I added the following URL:https://dl.espressif.com/dl/package_esp32_index.json and then 
+Clicked "OK" to close the Preferences window.
+
+3. Then to Install ESP32 Boards so we can control the boards with the adruino  IDE. I went to "Tools" -> "Board" -> "Boards Manager."
+and Searched for "esp32" and then installed the "ESP32 by Espressif Systems" package.
+
+4.Install LVGL from Library Manager:
+In the Arduino IDE, I went to "Sketch" -> "Include Library" -> "Manage Libraries."
+I Searched for "lvgl" and installed the "lvgl" library by LVGL Community.
+
+5.I Created a New Sketch:
+
+By Opening the Arduino IDE,
+Going to "File" -> "New" to create a new sketch.
+
+6.Including The LVGL Library:
+
+At the top of my Arduino sketch, I included the LVGL library:
+
+#include <lvgl.h>
+
+Now I can Write my LVGL-based GUI code in the Arduino sketch. 
+
+7. Configure ESP32 Board:
+
+I haven't done this yet because I don't have a board yet
