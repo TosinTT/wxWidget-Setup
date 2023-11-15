@@ -1,13 +1,3 @@
-Adafruit 1.44" Color TFT LCD Display with MicroSD Card breakout [ADA2088]- this is one display for the esp32 and it is colored
-
-Walfront 1.3 Inch 128X64 IIC I2C SPI Serial OLED Display Module White Text Color for MP3 Function Cellphone Smart Health Device- this i
-
-Waveshare 1.3inch OLED Display Module for Raspberry Pi Pico, 64×128 Pixels, 4-Wire SPI and I2C Interface Embedded SH1107 Driver with Two User Buttons for Easy Interacting
-
-Hosyond 5 Pcs 1.3 Inch IIC I2C OLED Display Module 128x64 Pixel SH1106 Screen Module Compatible with Arduino/Raspberry Pi (White)
-
-Waveshare 1.3inch OLED Display Module for Raspberry Pi Pico, 64×128 Pixels, 4-Wire SPI and I2C Interface Embedded SH1107 Driver with Two User Buttons for Easy Interacting
-
 
 //How to interface LVGL with ESP32:
 1. Firstly I downloaded the Adruino IDE from the official Adruino website adruino.cc
@@ -39,3 +29,22 @@ Now I can Write my LVGL-based GUI code in the Arduino sketch.
 7. Configure ESP32 Board:
 
 I haven't done this yet because I don't have a board yet
+
+//Is the Esp32 less difficult than the Raspberry pi?
+
+During my research, I found out that the esp32 uses less power than the Raspberry pi, and therefore is more suitable for smaller projects, unlike the Raspberry pi which works best for larger projects. So with this in mind, for this project the Esp32 is less difficult than the Raspberry pi, and also during the configuration and interfacing, the Esp32 was way more easier than the raspberry pi.
+
+
+//How to develop interface for the screen chosen
+
+1. In the environment which we have already set up, we include our LVGL and display driver library before begining the code.
+
+2. Then initialize the LVGL in the void setup(){}
+
+3.Create user Interface elements using the LVGL functions, such as buttons, lavels, containers etc.
+
+4. handle user input, like click using event.
+
+5. Run the main loop in the void loop(){}
+
+6. upload to the esp32 and test the interface on the display screen.
